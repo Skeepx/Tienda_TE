@@ -1,0 +1,1371 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.inicioSesion{
+  width: 320px;
+  height: 420px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.inicioSesion h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-70%);
+  text-align: left;
+  font-size: 22px;
+
+}
+
+.admin label {
+  transform: translateY(-20%);
+  font-size: 14px;
+}
+
+.email label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-100%);
+  font-weight: bold;
+  display: block;
+}
+
+.contraseña label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-100%);
+  font-weight: bold;
+  display: block;
+}
+
+.contraseña input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(200%);
+  background-color: rgb(233, 230, 230);
+}
+
+.email input {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(200%);
+}
+
+.inicioSesion input[type="text"],
+.inicioSesion[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.inicioSesion input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #660fb8;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(200%);
+}
+
+.inicioSesion input[type="submit"]:hover {
+  cursor: pointer;
+  background: #c430c4;
+  color: #ffffff;
+
+}
+
+.registrarsen {
+  transform: translateY(400%);
+}
+
+.inicioSesion a {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.inicioSesion a:hover {
+  color: #660fb8;
+}
+
+.registrar {
+  width: 320px;
+  height: 520px;
+  background: #000;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.registrar h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-40%);
+  text-align: left;
+  font-size: 22px;
+
+}
+
+.nombre label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(60%);
+  font-weight: bold;
+  display: block;
+}
+
+.email2 label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(180%);
+  font-weight: bold;
+  display: block;
+}
+
+.contraseña2 label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(290%);
+  font-weight: bold;
+  display: block;
+}
+
+.nombre input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(80%);
+  background-color: rgb(233, 230, 230);
+}
+
+.contraseña2 input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(220%);
+  background-color: rgb(233, 230, 230);
+}
+
+.email2 input {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(150%);
+}
+
+.registrar input[type="text"],
+.inicioSesion[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.registrar input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #660fb8;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(330%);
+}
+
+.registrar input[type="submit"]:hover {
+  cursor: pointer;
+  background: #c430c4;
+  color: #ffffff;
+
+}
+
+.registrar2 {
+  transform: translateY(700%);
+}
+
+.registrar2 a {
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgb(255, 255, 255);
+}
+
+.registrar2 a:hover {
+  color: #660fb8;
+}
+
+.menu {
+  background: #558aa8;
+  color: #fff;
+  top: 25%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 60px;
+}
+
+.menu button {
+  background-color: #558aa8;
+  border: none;
+}
+
+.provee {
+  background: #558aa8;
+  color: #fff;
+  top: 42%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 60px;
+}
+
+.provee button {
+  background-color: #558aa8;
+  border: none;
+}
+.produ {
+  background: #558aa8;
+  color: #fff;
+  top: 54%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 70px;
+}
+
+.produ button {
+  background-color: #558aa8;
+  border: none;
+}
+
+.exis {
+  background: #558aa8;
+  color: #fff;
+  top: 66%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 20px 70px;
+}
+
+.exis button {
+  background-color: #558aa8;
+  border: none;
+}
+.regmen {
+  background: #ffffff;
+  color: #fff;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 10px 10px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.regmen button {
+  background-color: #ffffff;
+  border: none;
+}
+
+.crear, .crearprod, .crearex {
+  background: #558aa8;
+  color: #fff;
+  top: 23%;
+  left: 50%;
+  position: absolute;
+  transform: translate(200%, -10%);
+  box-sizing: border-box;
+  padding: 10px 30px;
+}
+
+.crear button,.crearprod button, .crearex button {
+  background-color: #558aa8;
+  border: none;
+}
+
+.actualizar, .actualizarprod, .actualizarex {
+  background: #558aa8;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(200%, -280%);
+  box-sizing: border-box;
+  padding: 10px 11px;
+}
+
+.actualizar button, .actualizarprod button, .actualizarex button {
+  background-color: #558aa8;
+  border: none;
+}
+
+.eliminar, .eliminarprod, .eliminarex {
+  background: #558aa8;
+  color: #fff;
+  top: 60%;
+  left: 50%;
+  position: absolute;
+  transform: translate(200%, -250%);
+  box-sizing: border-box;
+  padding: 10px 20px;
+}
+
+.eliminar button, .eliminarprod button, .eliminarex button {
+  background-color: #558aa8;
+  border: none;
+}
+/*------------------BUSCAR BOTON________________*/
+.buscarex{
+  background: #558aa8;
+  color: #fff;
+  top: 60%;
+  left: 50%;
+  position: absolute;
+  transform: translate(200%, -70%);
+  box-sizing: border-box;
+  padding: 10px 26px;
+}
+.buscarex button{
+  background-color: #558aa8;
+  border: none;
+}
+.menprovee, .menex, .menprod{
+  background: #000000;
+  padding: 10px 10px;
+  position: absolute;
+  transform: translateY(-200%) ;
+  margin: 20px;
+}
+
+.menprovee button, .menex button, .menprod button{
+  background-color: black;
+  border: none;
+  color: white;
+}
+
+.prov, .prod, .existe{
+  background: #878689;
+  padding: 10px 10px;
+  position: absolute;
+  margin: 20px 70px;
+  transform: translateY(-200%) ;
+}
+
+
+/*---------------crearprovedor-------------*/
+.crearprovee{
+  width: 320px;
+  height: 380px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.crearprovee h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-40%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.nomprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.direcprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.nomprov input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(170%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.direcprov input {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(180%);
+  font-weight: bold;
+}
+
+.crearprovee input[type="text"],
+.crearprovee[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.crearprovee input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(200%);
+  font-weight: bold;
+}
+
+.crearprovee input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*---------------crearprovedor-------------*/
+
+.crearprov, .crearprodd, .crearexiss{
+  background: #f0eff1;
+  padding: 10px 10px;
+  position: absolute;
+  margin: 10px 50px;
+}
+.mencrearprov{
+  background: #000000;
+  padding: 10px 10px;
+  position: absolute;
+  margin: 10px 5px;
+}
+
+.mencrearprov button{
+   background: #000000;
+  color: white;
+  border: none;
+}
+
+.iconoprov{
+  margin: 1000px 10px;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  font-size: 200%;
+}
+/*------------------------BUSCAAAAR----------------*/
+.buscarprovee{
+  width: 320px;
+  height: 380px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.buscarprovee h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(10%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.idprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(20%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.idprov input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(300%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.buscarprovee input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(400%);
+  font-weight: bold;
+}
+
+.buscarprovee input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+
+/*-------------------------------CREAR PRODUCTO---------------------------*/
+
+.crearprodu{
+  width: 320px;
+  height: 520px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.crearprodu h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-20%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.nomprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-100%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.nomprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(200%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.precioprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-60%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.precioprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(220%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.fechaprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-20%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.fechaprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(240%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.idprove label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(20%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.idprove input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(250%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.crearprodu input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(270%);
+  font-weight: bold;
+}
+
+.crearprodu input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*------------------------------------TABLAAAAAAA--------------------------------------*/
+.table {
+  height: 100%;
+  table-layout: fixed;
+  max-height: 300px;
+  border-collapse: collapse;
+  transform: translateY(60%);
+  margin: 90px;
+  background-color: #558aa8;
+  
+  
+  
+}
+table {
+  width: 50%;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  word-wrap: break-word;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table thead th {
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+  
+}
+/* ------------------------------------Actualizar provedor-------------------------*/
+.actualizarprovee{
+  width: 320px;
+  height: 430px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.actualizarprovee h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-40%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.id label {
+  margin: 10;
+  padding: 70;
+  transform: translateY(140%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+.id input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(100%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.anomprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.adirecprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.anomprov input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(170%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.adirecprov input {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(180%);
+  font-weight: bold;
+}
+
+.actualizarprovee input[type="text"],
+.actualizarprovee[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.actualizarprovee input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(200%);
+  font-weight: bold;
+}
+
+.actualizarprovee input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*-----------------------------------Actualizar Producto------------------*/
+.actualizarprodu{
+  width: 320px;
+  height: 580px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.actualizarprodu h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-20%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+.idprod label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(100%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.idprod input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(100%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.nomprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-100%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.nomprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(200%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.precioprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-60%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.precioprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(220%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.fechaprodu label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-20%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.fechaprodu input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(240%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.idprove label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(20%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.idprove input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -30px;
+  border-radius: 5%;
+  transform: translateY(250%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.actualizarprodu input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(270%);
+  font-weight: bold;
+}
+
+.actualizarprodu input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*---------------------------------ACTUALIZAR EXIS------------------------*/
+.actualizarexis{
+  width: 320px;
+  height: 450px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.actualizarexis h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-40%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.id label {
+  margin: 10;
+  padding: 70;
+  transform: translateY(140%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+.id input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(100%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.anomprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.adirecprov label {
+  margin: 10;
+  padding: 30;
+  transform: translateY(-120%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+
+.anomprov input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(170%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.adirecprov input {
+  width: 100%;
+  height: 10%;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(180%);
+  font-weight: bold;
+}
+
+.actualizarexis input[type="text"],
+.actualizarexis[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.actualizarexis input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(200%);
+  font-weight: bold;
+}
+
+.actualizarexis input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+
+.menuexis{
+  background: #f0eff1;
+  padding: 10px 10px;
+  position: absolute;
+  margin: 10px 50px;
+}
+.exisss{
+  background: #000000;
+  padding: 10px 10px;
+  position: absolute;
+  margin: 10px 5px;
+}
+/*-----------------------------ELIMINARPROVEE-------------------------*/
+.eliminarprovee{
+  width: 320px;
+  height: 400px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.eliminarprovee h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(-40%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.id label {
+  margin: 10;
+  padding: 70;
+  transform: translateY(140%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+.id input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(100%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+.eliminarprovee input[type="text"],
+.eliminarprovee[type="password"] {
+  border: none;
+  padding: -90px;
+  border-bottom: 1px solid #fff;
+  background: rgb(233, 230, 230);
+  outline: none;
+  height: 25px;
+  color: #0e0d0d;
+  font-size: 12px;
+}
+
+.eliminarprovee input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(400%);
+  font-weight: bold;
+}
+
+.eliminarprovee input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+
+/*------------------------------------------ELIMINAR productos------------------------------*/
+.eliminarexis{
+  width: 320px;
+  height: 350px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.eliminarexis h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(10%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.idexis label {
+  margin: 10;
+  padding: 70;
+  transform: translateY(-100%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+.idexis input {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(200%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.eliminarexis input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(300%);
+  font-weight: bold;
+}
+
+.eliminarexis input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*BUSCA_________________________________*/
+.buscarexis{
+  width: 320px;
+  height: 350px;
+  background: #ffffff;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 50px 30px;
+}
+
+.buscarexis h1 {
+  margin: 0;
+  padding: 0 0 10px;
+  transform: translateY(10%);
+  text-align: center;
+  font-size: 22px;
+  color: #000;
+
+}
+
+.buscarexis label  {
+  margin: 10;
+  padding: 70;
+  transform: translateY(300%);
+  font-weight: bold;
+  display: block;
+  color: #000;
+}
+.buscarexis input[name="id"] {
+  width: 100%;
+  height: 30px;
+  margin-bottom: 20px;
+  padding: -50px;
+  border-radius: 5%;
+  transform: translateY(200%);
+  background-color: rgb(233, 230, 230);
+  font-weight: bold;
+}
+
+.buscarexis input[type="submit"] {
+  border: none;
+  outline: none;
+  width: 105%;
+  height: 30px;
+  background: #558aa8;
+  color: #000000;
+  font-size: 18px;
+  border-radius: 5px;
+  transform: translateY(350%);
+  font-weight: bold;
+}
+
+.buscarexis input[type="submit"]:hover {
+  cursor: pointer;
+  background: #2765a8;
+  color: #ffffff;
+
+}
+/*--------------------------TABLA BUSCAR---------------------------------*/
+.table-productos {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 500px;
+  max-width: 400px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  transform: translate(140%, -2800%);
+}
+
+.table-productos th,
+.table-productos td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.table-productos th {
+  background-color: #f2f2f2;
+}
+
+.table-productos tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/*---------------------------------------------------------------------------------*/
+
+.table-productos {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 500px;
+  max-width: 400px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  transform: translate(140%, -2800%);
+}
+
+.table-productos th,
+.table-productos td {
+  border: 1px solid black;
+  padding: 8px;
+}
+
+.table-productos th {
+  background-color: #f2f2f2;
+}
+
+.table-productos tr:nth-child(even) {
+  background-color: #dddddd;
+}
