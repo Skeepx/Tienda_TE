@@ -1,6 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include 'db.php';
+if (isset($_POST['eliminar'])) {
+    $id = $_POST['idprodu'];
+    $id = mysqli_real_escape_string($conexion, $id);
 
+    $sqlExistencias = "DELETE FROM existencias WHERE produ_id = $id";
+    if ($conexion->query($sqlExistencias) === FALSE) {
+        echo "Error al eliminar las filas relacionadas en la tabla existencias: " . $conexion->error;
+        exit;
+    }
+
+    $sqlProducto = "DELETE FROM producto WHERE produ_id = $id";
+    if ($conexion->query($sqlProducto) === TRUE) {
+        header("Location: productos.php");
+        exit;
+    } else {
+        echo "Error al eliminar el registro: " . $conexion->error;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,61 +29,61 @@
     <title>Productos</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="Imagenes/caja.jpg" style="background-size: cover;">
+<body class="fondo-personalizado">
+    <div class="barra-superior">
+        <div class="menu-btn">
+            <button onclick="location.href='menu.php'">≡</button>
+        </div>
+        <div class="titulo">
+            <label><b>PRODUCTOS</b></label>
+        </div>
+    </div>
 
-    <div class="crearprod" style="border-radius: 10px;" >
-        <button onclick="location.href='crearprodu.php'"><b>CREAR</b></button>
+    <div class="acciones">
+        <div class="buttons-act">
+            <button onclick="location.href='crearprodu.php'">CREAR</button>
+            <button onclick="location.href='buscarprodu.php'">BUSCAR</button>
+        </div>
     </div>
-    <div class="actualizarprod" style="border-radius: 10px;">
-        <button onclick="location.href='actualizarprodu.php'"><b>ACTUALIZAR</b></button>
-    </div>
-    <div class="eliminarprod" style="border-radius: 10px;">
-        <button onclick="location.href='eliminarprodu.php'"><b>ELIMINIAR</b></button>
-    </div>
-    <div class="buscarex" style="border-radius: 10px;">
-        <button onclick="location.href='buscarprodu.php'"><b>BUSCAR</b></button>
-    </div>
-    <div class="menprod" style="border-radius: 10px;">
-        <button onclick="location.href='menu.php'"><b>=</b></button>
-    </div>
-    <div class="prod" style="border-radius: 10px;">
-        <label><b>PRODUCTOS</b></label>
-    </div>
+
     <?php
+    $sql = "SELECT p.produ_id, p.produ_nombre, p.produ_precio, p.fech_entrada, pr.prov_nombre FROM producto p JOIN proveedor pr ON p.prov_id = pr.prov_id";
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "tallerexamen";
-    $conexion = new mysqli($servername, $username, $password, $database);
-
-    $sql = "SELECT * FROM producto";
     $resultado = $conexion->query($sql);
     ?>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>ID Provee</th>
-                <th>Fecha Entrada</th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php while ($fila = $resultado->fetch_assoc()) { ?>
-            <tr>
-                <td><?php echo $fila['produ_id']; ?></td>
-                <td><?php echo $fila['produ_nombre']; ?></td>
-                <td><?php echo $fila['produ_precio']; ?></td>
-                <td><?php echo $fila['prov_id']; ?></td>
-                <td><?php echo $fila['fech_entrada']; ?></td>
-            </tr>
-        <?php } ?>
-    </tbody>
-    </table>
+    <div class="table-container">
+        <table class="tabla">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Proveedor</th>
+                    <th>Fecha Entrada</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while ($fila = $resultado->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($fila['produ_nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($fila['produ_precio']); ?></td>
+                        <td><?php echo htmlspecialchars($fila['prov_nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($fila['fech_entrada']); ?></td>
+                        <td>
+                            <a href="actualizarprodu.php?id=<?php echo urlencode($fila['produ_id']); ?>">
+                                <button class="btn-editar">EDITAR</button>
+                            </a>
 
+                            <form method="post" style="display:inline;">
+                                <input type="hidden" name="idprodu" value="<?php echo htmlspecialchars($fila['produ_id']); ?>">
+                                <button type="submit" name="eliminar" class="btn-eliminar" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');">ELIMINAR</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 </body>
-</html>
-</body>
+
 </html>

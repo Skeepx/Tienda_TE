@@ -1,39 +1,54 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "tallerexamen";
-
-$conexion  = new mysqli($servername, $username, $password, $database);
+include 'db.php';
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
-$sql = "SELECT produ_id FROM producto";
-$result = $conexion->query($sql);
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $id = mysqli_real_escape_string($conexion, $id);
+
+    $sql = "SELECT * FROM producto WHERE produ_id = $id";
+    $resultado = $conexion->query($sql);
+
+    if ($resultado->num_rows > 0) {
+        $fila = $resultado->fetch_assoc();
+    } else {
+        die("Producto no encontrado.");
+    }
+} else {
+    die("ID de producto no especificado.");
+}
+
+$proveedores = mysqli_query($conexion, "SELECT * FROM proveedor");
 
 if (isset($_POST['actualizar'])) {
-    $id = $_POST['id'];
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $precio = mysqli_real_escape_string($conexion, $_POST['precio']);
-    $fechaE = mysqli_real_escape_string($conexion, $_POST['fecha']);
-    $idprov = mysqli_real_escape_string($conexion, $_POST['idprov']);
+    $cantidad = mysqli_real_escape_string($conexion, $_POST['cantidad']);
+    $fechaE = mysqli_real_escape_string($conexion, $_POST['fechaE']);
+    $idprov = mysqli_real_escape_string($conexion, $_POST['prov_id']);
 
-    $sql = "UPDATE producto SET produ_nombre = '$nombre', produ_precio = '$precio', prov_id = '$idprov',fech_entrada = '$fechaE' WHERE produ_id = $id";
+    $sql = "UPDATE producto SET produ_nombre = '$nombre', produ_precio = '$precio', prov_id = '$idprov', fech_entrada = '$fechaE', cantidad = $cantidad WHERE produ_id = $id";
 
     if ($conexion->query($sql) === TRUE) {
+        $updateExistencia = "UPDATE existencias SET exis_cantidad = $cantidad WHERE produ_id = $id";
+        $conexion->query($updateExistencia);
+
         header("Location: productos.php");
-            exit;
+        exit;
     } else {
         echo "Error al actualizar el registro: " . $conexion->error;
     }
 }
 
+
 $conexion->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,40 +56,45 @@ $conexion->close();
     <title>Actualizar productos</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="Imagenes/cajas.jpg" style="background-size: cover;">
-    <div class="actualizarprodu" style="border-radius: 10px;">
-        <h1><b>ACTUALIZAR</b></h1>
-        <form method="post">
-        <div class="idprod">
-                <label for="id">ID</label>
-                <input type="text" style="border: 3px solid #558aa8;" name="id" required>
-            </div>
-            <div class="nomprodu">
-                <input type="text" style="border: 3px solid #558aa8;" name="nombre" requiered>
-                <label>Ingrese nombre</label>
-            </div>
-            <div class="precioprodu">
-                <input type="text" style="border: 3px solid #558aa8;" name="precio" required>
-                <Label>Ingrese precio</Label>
-            </div>
-            <div class="fechaprodu">
-                <input type="datetime" style="border: 3px solid #558aa8;" name="fecha" requiered>
-                <label>Ingrese fecha de entrega</label>
-            </div>
-            <div class="idprove">
-                <input type="text" style="border: 3px solid #558aa8;" name="idprov" required>
-                <Label>Ingrese el ID del proveedor</Label>
-            </div>
 
-            <input type="submit" value="Actualizar" name="actualizar">
-        </form>
-    </div>    
-    <div class="mencrearprov" style="border-radius: 10px;">
-        <button onclick="location.href='menu.php'"><b>=</b></button>
+<body class="fondo-personalizado">
+    <div class="barra-superior">
+        <div class="menu-btn">
+            <button onclick="location.href='menu.php'">≡</button>
+        </div>
+        <div class="titulo">
+            <label><b>ACTUALIZAR PRODUCTO</b></label>
+        </div>
     </div>
-    <div class="crearprov" style="border-radius: 10px;">
-        <label><b>PRODUCTOS</b></label>
+    <div class="container_entrega">
+        <div class="form-container">
+            <form method="post">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($fila['produ_id']); ?>">
+
+                <label class="lbl_form">Ingrese nombre</label>
+                <input type="text" name="nombre" required value="<?php echo htmlspecialchars($fila['produ_nombre']); ?>">
+
+                <label class="lbl_form">Ingrese precio</label>
+                <input type="text" name="precio" required value="<?php echo htmlspecialchars($fila['produ_precio']); ?>">
+
+                <label class="lbl_form" for="cantidad">Cantidad:</label>
+                <input type="number" name="cantidad" id="cantidad" min="1" required value="<?php echo htmlspecialchars($fila['cantidad']); ?>">
+
+                <label class="lbl_form">Ingrese fecha de entrega</label>
+                <input type="date" name="fechaE" required value="<?php echo htmlspecialchars($fila['fech_entrada']); ?>">
+
+                <label class="lbl_form">Seleccione el proveedor</label>
+                <select name="prov_id" required>
+                    <option value="">Seleccione un proveedor</option>
+                    <?php while ($prov = mysqli_fetch_assoc($proveedores)) { ?>
+                        <option value="<?= $prov['prov_id'] ?>" <?= ($prov['prov_id'] == $fila['prov_id']) ? 'selected' : '' ?>><?= $prov['prov_nombre'] ?></option>
+                    <?php } ?>
+                </select>
+
+                <input type="submit" value="Actualizar" name="actualizar">
+            </form>
+        </div>
     </div>
-    <input type="button" class="iconoprov" value="<" onclick="location.href='productos.php'" >
 </body>
+
 </html>

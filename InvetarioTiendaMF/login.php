@@ -1,34 +1,53 @@
+<?php if (isset($_GET['eliminado'])): ?>
+    <p class="mensaje-exito">Tu cuenta ha sido eliminada exitosamente.</p>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesion</title>
+    <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="Imagenes/Iniciarsesion.jpg" style="background-size: cover;">
-    <div class="inicioSesion" style="border-radius: 10px;">
-        <h1><b>Inicio de sesión</b></h1>
-        <form  action="validar.php" method="post">
-            <div class="admin">
-                <label>Inicie Sesión con su cuenta de <b>administrador</b></label>
+<body>
+    <div class="login">
+        <div class="login-container">
+            <div class="login-form">
+                
+                <h2>Inicio de sesión</h2>
+                <p>¿No tienes una cuenta? <a href="registrarse.php">Regístrate</a></p>
+
+                <form action="validar.php" method="post">
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="input-group password-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" name="contraseña" placeholder="Mínimo 6 caracteres" required>
+                    </div>
+
+                    <button type="submit" class="btn-login">Iniciar sesión</button>
+
+                    <div class="or">o inicia sesión con</div>
+
+                    <div class="social-login">
+                        <button type="button" class="google-btn">Google</button>
+                        <button type="button" class="facebook-btn">Facebook</button>
+                    </div>
+
+                </form>
+
             </div>
-            <div class="email">
-                <input type="text" style="border: 3px solid rgb(113, 22, 199);" name="email" requiered>
-                <label>Email</label>
+
+            <div class="login-image">
+                <img src="Imagenes/Iniciarsesion.jpg" alt="Imagen de login">
             </div>
-            <div class="contraseña">
-                <input type="password" style="border: 3px solid rgb(113, 22, 199);" name="contraseña" required>
-                <Label>Contraseña</Label>
-            </div>
-            <input type="submit" value="Iniciar Sersión" > 
-            <center>
-            <div class="registrarsen">
-                ¿No tienes cuenta? <a href="registrarse.php"> <b>Regístrate</b></a>
-            </div>
-            </center>
-        </form>
-    </div>    
+        </div>
+    </div>
 </body>
+
 </html>

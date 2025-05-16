@@ -1,14 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "tallerexamen";
-
-$conexion = new mysqli($servername, $username, $password, $database);
-
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include 'db.php';
 
 $tableProductos = '';
 
@@ -16,64 +7,81 @@ if (isset($_POST['buscar'])) {
     $id = $_POST['id'];
     $id = mysqli_real_escape_string($conexion, $id);
 
-    $sqlProductos = "SELECT * FROM producto WHERE produ_id = $id";
+    $sqlProductos = "
+        SELECT producto.*, proveedor.prov_nombre 
+        FROM producto 
+        JOIN proveedor ON producto.prov_id = proveedor.prov_id 
+        WHERE producto.produ_id = $id
+    ";
     $resultProductos = $conexion->query($sqlProductos);
 
     if ($resultProductos->num_rows > 0) {
-        $tableProductos .= '<table class="table-productos">';
-        $tableProductos .= '<tr>';
-        $tableProductos .= '<th>ID</th>';
-        $tableProductos .= '<th>Nombre</th>';
-        $tableProductos .= '<th>Precio</th>';
-        $tableProductos .= '<th>ID proveedor</th>';
-        $tableProductos .= '<th>Fecha Entrada</th>';
-        $tableProductos .= '</tr>';
+        $rowProductos = $resultProductos->fetch_assoc();
 
-        while ($rowProductos = $resultProductos->fetch_assoc()) {
-            $tableProductos .= '<tr>';
-            $tableProductos .= '<td>' . $rowProductos['produ_id'] . '</td>';
-            $tableProductos .= '<td>' . $rowProductos['produ_nombre'] . '</td>';
-            $tableProductos .= '<td>' . $rowProductos['produ_precio'] . '</td>';
-            $tableProductos .= '<td>' . $rowProductos['prov_id'] . '</td>';
-            $tableProductos .= '<td>' . $rowProductos['fech_entrada'] . '</td>';
-            $tableProductos .= '</tr>';
-        }
-
-        $tableProductos .= '</table>';
+        $tableProductos .= '<div class="cuadro-buscar">';
+        $tableProductos .= '<p><strong>ID:</strong> ' . $rowProductos['produ_id'] . '</p>';
+        $tableProductos .= '<p><strong>Nombre:</strong> ' . $rowProductos['produ_nombre'] . '</p>';
+        $tableProductos .= '<p><strong>Precio:</strong> ' . $rowProductos['produ_precio'] . '</p>';
+        $tableProductos .= '<p><strong>Proveedor:</strong> ' . $rowProductos['prov_nombre'] . '</p>';
+        $tableProductos .= '<p><strong>Fecha Entrada:</strong> ' . $rowProductos['fech_entrada'] . '</p>';
+        $tableProductos .= '</div>';
     } else {
-        $tableProductos = "No se encontró ningún producto con ese ID.";
+        $tableProductos = "<p class='mensaje-error'>No se encontró ningún producto.</p>";
     }
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Productos</title>
+    <title>Buscar producto</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 </head>
-<body background="Imagenes/cajas.jpg" style="background-size: cover;">
-    <div class="container">
-        <div class="buscarexis" style="border-radius: 10px;">
-            <h1>Buscar</h1>
-            <form method="post">
-                <label>Ingrese el ID:</label>
-                <input type="text" style="border: 3px solid #558aa8;" name="id">
-                <input type="submit" value="Buscar" name="buscar">
-            </form>
-        </div>
-        <div class="mencrearprov" style="border-radius: 10px;">
-            <button onclick="location.href='menu.php'"><b>=</b></button>
-        </div>
-        <div class="crearprov" style="border-radius: 10px;">
-            <label><b>Productos</b></label>
-        </div>
-        <input type="button" class="iconoprov" value="<" onclick="location.href='productos.php'" >
 
-        <?php echo $tableProductos; ?>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Seleccione un producto",
+            allowClear: true,
+            width: '100%'
+        });
+    });
+</script>
+
+<body class="fondo-personalizado">
+    <div class="barra-superior">
+        <div class="menu-btn">
+            <button onclick="location.href='menu.php'">≡</button>
+        </div>
+        <div class="titulo">
+            <label><b>BUSCAR PRODUCTO</b></label>
+        </div>
+    </div>
+
+    <div class="container_entrega">
+        <div class="form-container">
+            <?php
+            $productos = mysqli_query($conexion, "SELECT * FROM producto");
+            ?>
+            <div class="table-container">
+                <form method="post">
+                    <label for="producto">Seleccione un producto:</label>
+                    <select name="id" id="producto" class="select2" required>
+                        <option value="">Seleccione un producto</option>
+                        <?php while ($prod = mysqli_fetch_assoc($productos)) { ?>
+                            <option value="<?= $prod['produ_id'] ?>"><?= $prod['produ_nombre'] ?></option>
+                        <?php } ?>
+                    </select>
+                    <input type="submit" name="buscar" value="Buscar">
+                </form>
+                <?php echo $tableProductos; ?>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -1,28 +1,26 @@
 <?php
-$email = $_POST['email'];
-$contraseña = $_POST['contraseña'];
-session_start();
-$_SESSION['email'] = $email;
+    include 'db.php';
 
-$conexion = mysqli_connect("localhost", "root", "", "tallerexamen");
+    $email = $_POST['email'];
+    $contraseña = $_POST['contraseña'];
+    session_start();
 
-$consulta = "SELECT * FROM login WHERE email='$email' AND contraseña='$contraseña'";
-$resultado = mysqli_query($conexion, $consulta);
+    $consulta = "SELECT * FROM login WHERE email='$email' AND contraseña='$contraseña'";
+    $resultado = mysqli_query($conexion, $consulta);
 
-$filas = mysqli_num_rows($resultado); // Se corrige el parámetro de la función
+    if (mysqli_num_rows($resultado) > 0) {
+        $fila = mysqli_fetch_assoc($resultado);
 
-if ($filas > 0) { // Se valida si hay filas en el resultado
-    header("Location: menu.php");
-    exit(); // Se agrega la función exit() para detener la ejecución después de redirigir
-} else {
-    ?>
-    <?php
-    include("login.php"); // Se corrige la sintaxis del include y se agrega comillas al nombre del archivo
-    ?>
-    <h1 class="error">ERROR</h1>
-    <?php
-}
+        $_SESSION['email'] = $fila['email'];
+        $_SESSION['nombre'] = $fila['nombre']; 
 
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+        header("Location: menu.php");
+        exit();
+    } else {
+        include("login.php");
+        echo '<h1 class="error">ERROR</h1>';
+    }
+
+    mysqli_free_result($resultado);
+    mysqli_close($conexion);
 ?>

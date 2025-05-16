@@ -1,20 +1,14 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "tallerexamen";
-
-    $conexion = new mysqli($servername, $username, $password, $database);
-
+    include 'db.php';
     if ($conexion->connect_error) {
         die("Error de conexión: " . $conexion->connect_error);
     }
 
     $nombre = $_POST["nombre"];
-    $direccion = $_POST["direccion"];
+    $telefono = $_POST["tel"];
 
-    $sql = "INSERT INTO proveedor (prov_nombre, prov_direc) VALUES ('$nombre', '$direccion')";
+    $sql = "INSERT INTO proveedor (prov_nombre, prov_tel) VALUES ('$nombre', '$telefono')";
 
     if ($conexion->query($sql) === TRUE) {
         header("Location: proveedores.php");
@@ -35,27 +29,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Crear proveedor</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="Imagenes/cajas.jpg" style="background-size: cover;">
-    <div class="crearprovee" style="border-radius: 10px;">
-        <h1><b>CREAR PROVEEDOR</b></h1>
-        <form method="post">
-            <div class="nomprov">
-                <input type="text" style="border: 3px solid #558aa8;" name="nombre">
-                <label>Ingrese el nombre</label>
-            </div>
-            <div class="direcprov">
-                <input type="text" style="border: 3px solid #558aa8;" name="direccion" required>
-                <Label>Ingrese la dirección</Label>
-            </div>
-            <input type="submit" value="Crear" name="crear">
-        </form>
-    </div>    
-    <div class="mencrearprov" style="border-radius: 10px;">
-        <button onclick="location.href='menu.php'"><b>=</b></button>
+
+<body class="fondo-personalizado">
+    <div class="barra-superior">
+        <div class="menu-btn">
+            <button onclick="location.href='menu.php'">≡</button>
+        </div>
+        <div class="titulo">
+            <label><b>CREAR PROVEEDOR</b></label>
+        </div>
     </div>
-    <div class="crearprov" style="border-radius: 10px;">
-        <label><b>PROVEEDORES</b></label>
+    <div class="container_entrega">
+        <div class="form-container">
+            <form method="post">
+                <label class="lbl_form">Ingrese nombre</label>
+                <input type="text" name="nombre" required>
+
+                <label class="lbl_form">Ingrese telefono</label>
+                <input type="text" name="tel" required>
+
+                <input type="submit" value="Crear" name="crearprov">
+            </form>
+
+        </div>
     </div>
-    <input type="button" class="iconoprov" value="<" onclick="location.href='proveedores.php'" >
 </body>
 </html>

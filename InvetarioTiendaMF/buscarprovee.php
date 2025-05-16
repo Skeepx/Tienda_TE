@@ -1,14 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "tallerexamen";
-
-$conexion = new mysqli($servername, $username, $password, $database);
+include 'db.php';
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
+
+$proveedores = $conexion->query("SELECT prov_id, prov_nombre FROM proveedor");
 
 $tableProveedor = '';
 
@@ -20,25 +17,17 @@ if (isset($_POST['buscar'])) {
     $resultProveedor = $conexion->query($sqlProveedor);
 
     if ($resultProveedor->num_rows > 0) {
-        $tableProveedor .= '<table class="table-existencias">';
-        $tableProveedor .= '<tr>';
-        $tableProveedor .= '<th>ID</th>';
-        $tableProveedor .= '<th>Nombre</th>';
-        $tableProveedor .= '<th>Direccion</th>';
-        $tableProveedor .= '</tr>';
+    $rowProveedor = $resultProveedor->fetch_assoc();
 
-        while ($rowProveedor = $resultProveedor->fetch_assoc()) {
-            $tableProveedor .= '<tr>';
-            $tableProveedor .= '<td>' . $rowProveedor['prov_id'] . '</td>';
-            $tableProveedor .= '<td>' . $rowProveedor['prov_nombre'] . '</td>';
-            $tableProveedor .= '<td>' . $rowProveedor['prov_direc'] . '</td>';
-            $tableProveedor .= '</tr>';
-        }
+    $tableProveedor .= '<div class="cuadro-buscar">';
+    $tableProveedor .= '<p><strong>ID:</strong> ' . $rowProveedor['prov_id'] . '</p>';
+    $tableProveedor .= '<p><strong>Nombre:</strong> ' . $rowProveedor['prov_nombre'] . '</p>';
+    $tableProveedor .= '<p><strong>Teléfono:</strong> ' . $rowProveedor['prov_tel'] . '</p>';
+    $tableProveedor .= '</div>';
+} else {
+    $tableProveedor = "<p class='mensaje-error'>No se encontró ningún proveedor.</p>";
+}
 
-        $tableProveedor .= '</table>';
-    } else {
-        $tableProveedor = "No se encontró ningun Proveedor.";
-    }
 }
 ?>
 
@@ -50,24 +39,53 @@ if (isset($_POST['buscar'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Proveedor</title>
     <link rel="stylesheet" href="style.css">
-</head>
-<body background="Imagenes/cajas.jpg" style="background-size: cover;">
-    <div class="buscarexis"  style="border-radius: 10px;">
-        <h1>Buscar</h1>
-        <form method="post">
-            <label>Ingrese el ID:</label>
-            <input type="text" style="border: 3px solid #558aa8;" name="id">
-            <input type="submit" value="Buscar" name="buscar">
-        </form>
-    </div>
-    <div class="mencrearprov" style="border-radius: 10px;">
-        <button onclick="location.href='menu.php'"><b>=</b></button>
-    </div>
-    <div class="crearprov" style="border-radius: 10px;">
-        <label><b>Proveedor</b></label>
-    </div>
-    <input type="button" class="iconoprov" value="<" onclick="location.href='proveedores.php'" >
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    <?php echo $tableProveedor; ?>
+</head>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2({
+            placeholder: "Seleccione un proveedor",
+            allowClear: true,
+            width: '100%'
+        });
+    });
+</script>
+
+
+<body class="fondo-personalizado">
+    <div class="barra-superior">
+        <div class="menu-btn">
+            <button onclick="location.href='menu.php'">≡</button>
+        </div>
+        <div class="titulo">
+            <label><b>BUSCAR PROVEEDOR</b></label>
+        </div>
+    </div>
+        <div class="container_entrega">
+            <div class="form-container">
+                <?php
+                include 'db.php';
+                $proveedores = mysqli_query($conexion, "SELECT * FROM proveedor");
+                ?>
+                <div class="table-container">
+                    <form method="post">
+                        <label for="proveedor">Seleccione un proveedor:</label>
+                        <select name="id" id="proveedor" class="select2" required>
+                            <option value="">Seleccione un proveedor</option>
+                            <?php while ($prov = mysqli_fetch_assoc($proveedores)) { ?>
+                                <option value="<?= $prov['prov_id'] ?>"><?= $prov['prov_nombre'] ?></option>
+                            <?php } ?>
+                        </select>
+                        <input type="submit" name="buscar" value="Buscar">
+                    </form>
+                    <?php echo $tableProveedor; ?>
+                </div>
+            </div>
+        
+    </div>
 </body>
+
 </html>

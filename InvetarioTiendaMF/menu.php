@@ -1,3 +1,12 @@
+<?php
+    include 'db.php';
+    session_start();
+    if (!isset($_SESSION['nombre'])) {
+        header("Location: login.php");
+        exit;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,22 +16,43 @@
     <title>Menú</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body background="Imagenes/menu.jpg" style="background-size: cover;">
-    
-    <div class="regmen">
-        <button onclick="location.href='login.php'"><b>Cerrar Sesión</b></button>
-    </div>
-    <div class="menu" style="border-radius: 10px;">
-        <button><b>MENÚ</b></button> 
-    </div>
-    <div class="provee" style="border-radius: 10px;">
-        <button onclick="location.href='proveedores.php'"><b>PROVEEDORES</b></button> 
-    </div>
-    <div class="produ" style="border-radius: 10px;">
-        <button onclick="location.href='productos.php'"><b>PRODUCTOS</b></button> 
-    </div>
-    <div class="exis" style="border-radius: 10px;">
-        <button onclick="location.href='existencias.php'"><b>EXISTENCIAS</b></button> 
+<body>
+    <div class="Menu-all">
+        <div class="Nav-menu">
+            <button onclick="location.href='login.php'"><b>Cerrar sesión</b></button>
+            <div class="Tittle">
+                <span>StockMaster</span>
+            </div>
+            <div class="Welcome">
+                <span>Bienvenid@  
+                    <a href="perfilu.php" class="perfil-link">
+                    <?php echo htmlspecialchars($_SESSION['nombre']); ?> </a>
+                </span>
+            </div>
+        </div>
+        <div background="Imagenes/menu.jpg" class="Menu-options">
+            <ul class="List-options">
+                <li class="card">
+                    <a href="proveedores.php" class="card-option">
+                        <img src="imagenes/proveedor.avif" alt="Proveedores">
+                        <span>PROVEEDORES</span>
+                    </a>
+                </li>
+                <li class="card">
+                    <a href="productos.php" class="card-option">
+                        <img src="imagenes/Productos.png" alt="Productos">
+                        <span>PRODUCTOS</span>
+                    </a>
+                </li>
+                <li class="card">
+                    <a href="existencias.php" class="card-option">
+                        <img src="imagenes/existencias.webp" alt="Existencias">
+                        <span>EXISTENCIAS</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
     </div>
 </body>
 </html>
